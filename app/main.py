@@ -7,13 +7,13 @@ import tensorflow as tf
 import streamlit as st
 
 
-working_dir = os.path.dirname(os.path.abspath(__file__))
-model_path = f"{working_dir}/trained_model/Brain_Tumor.h5"
-# Load the pre-trained model
+model_path = "https://drive.google.com/file/d/1cXv_du3ZqdnZfnhePtNa5rfEzg1Fd8di/view?usp=sharing"
 model = tf.keras.models.load_model(model_path)
 
 # loading the class names
-class_indices = json.load(open(f"{working_dir}/class_indices.json"))
+class_indices_path = "D:/Imarticus/capstone2/brain/class_indices.json"
+with open(class_indices_path, "r") as f:
+    class_indices = json.load(f)
 
 
 # Function to Load and Preprocess the Image using Pillow
